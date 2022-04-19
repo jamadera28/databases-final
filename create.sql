@@ -1,8 +1,11 @@
 --Benjamin Lucas, Joseph Madera, Hannah Packard, Abbigail Thompson
 --Create Database
-
+cl scr;
 DROP TABLE smoothie CASCADE CONSTRAINTS;
+DROP TABLE rewards  cascade constraints;
 DROP SEQUENCE seqSmID;
+drop sequence seqRID;
+drop sequence seqRNoToFree;
 
 CREATE TABLE smoothie(
 	smoothie_id			Int	NOT NULL,
@@ -25,4 +28,24 @@ CREATE TABLE smoothie(
 	primary key (smoothie_id)
 );
 CREATE SEQUENCE seqSmID INCREMENT BY 1 START WITH 1;
+
+CREATE TABLE rewards(
+    rewards_id         Int not null,
+    customer_id        Int null,
+    no_smoothies_to_free Int not null default 10,
+    primary key (rewards_id)
+    --foreign key (customer_id) references customer(customer_id)
+);
+create sequence seqRID increment by 1 start with 1;
+--create sequence seqRNoToFree increment by -1 start with 10 maxvalue 11 minvalue 0;
+
+--create trigger restartRNoToFree
+--after insert or update of no_smoothies_to_free on rewards
+--for each row
+--when ( new.no_smoothies_to_free = 0)
+--begin
+--    execute immediate 
+--    'alter sequence ' || seqRNoToFree || ' restart with 10';
+--end;
+
 
