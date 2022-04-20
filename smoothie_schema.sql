@@ -9,6 +9,14 @@ DROP SEQUENCE seqSsID;
 drop sequence seqCID;
 drop sequence seqSID;
 
+alter SEQUENCE seqSmID restart;
+alter sequence seqRID restart;
+alter sequence seqOID restart;
+alter SEQUENCE seqSsID restart;
+alter sequence seqCID restart;
+alter sequence seqSID restart;
+
+
 DROP TABLE rewards CASCADE CONSTRAINTS;
 CREATE TABLE rewards(
     rewards_id         Int not null,
@@ -93,9 +101,9 @@ CREATE TABLE orders (
     smoothie_id         Int,
     smoothie_store_id   Int,
     customer_id         Int,
-    odate                date not null,
+    odate               date not null,
     otype               varchar(10),
-    total_price         number(10,2) not null,
+    total_price         number(10,2),
     primary key (order_id),
     constraint type_c check(otype in ('delivery','pickup','instore') ),
     foreign key (customer_id) references customer(customer_id),
@@ -104,6 +112,13 @@ CREATE TABLE orders (
     foreign key (smoothie_store_id) references smoothie_store(smoothie_store_id)
 );
 CREATE SEQUENCE seqOID INCREMENT BY 1 START WITH 1;
+
+alter SEQUENCE seqSmID restart;
+alter sequence seqRID restart;
+alter sequence seqOID restart;
+alter SEQUENCE seqSsID restart;
+alter sequence seqCID restart;
+alter sequence seqSID restart;
 
 
 
