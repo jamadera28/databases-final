@@ -103,7 +103,6 @@ CREATE TABLE orders (
     customer_id         Int,
     odate               date not null,
     otype               varchar(10),
-    total_price         number(10,2),
     primary key (order_id),
     constraint type_c check(otype in ('delivery','pickup','instore') ),
     foreign key (customer_id) references customer(customer_id),
