@@ -58,7 +58,9 @@ CREATE TABLE smoothie(
     boost               varchar(10) NULL,
     frozen_sweet        varchar(20) NULL,
     constraint size_c check(ssize in ('small','medium','large') ),
-    constraint fruit_c check (fruit_one in ('orange','banana','apple','peach', 'strawberry', 'blueberry','pineapple','mango') and fruit_two in ('orange','banana','apple','peach', 'strawberry', 'blueberry','pineapple','mango') and fruit_three in ('orange','banana','apple','peach', 'strawberry', 'blueberry','pineapple','mango')),
+    constraint fruit_c check (fruit_one in ('orange','banana','apple','peach', 'strawberry', 'blueberry','pineapple','mango') 
+        and fruit_two in ('orange','banana','apple','peach', 'strawberry', 'blueberry','pineapple','mango') 
+        and fruit_three in ('orange','banana','apple','peach', 'strawberry', 'blueberry','pineapple','mango')),
     constraint veg_c check (veg_one in ('kale','spinach','cucumber','beet') and veg_two in ('kale','spinach','cucumber','beet') ),
     constraint protein_c check (protein in ('whey','soy')),
     constraint boost_c check (boost in ('vitamin_c','zinc','matcha') ),
