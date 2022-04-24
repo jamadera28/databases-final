@@ -16,7 +16,28 @@ from orders o
 INNER JOIN smoothie_store s ON s.smoothie_store_id = o.smoothie_store_id
 group by s.smoothie_store_id, s.slocation;
 
--- customer's favorite smoothies
-select c.cname as "Customer", s.smoothie_id as "Smoothie"
-from customer c, smoothie s, orders o
-where o.customer_id = c.customer_id and c.customer_id = 4;
+-- select customer smoothie orders
+select c.cname as "Customer", o.smoothie_id as "Smoothie"
+from orders o, customer c
+where o.customer_id = (
+    select c.customer_id from customer c where c.cname = 'Saul Goodman'
+) and o.customer_id = c.customer_id;
+
+-- find smoothie recipe
+select s.smoothie_id as "Smoothie ID", s.fruit_one, s.fruit_two, s.fruit_three, s.veg_one, s.veg_two, s.protein, s.boost, s.frozen_sweet
+from smoothie s
+where s.smoothie_id = 4;
+
+-- find smoothies left until reward
+select c.cname as "Customer", r.no_smoothies_to_free as "Smoothies Left"
+from customer c, rewards r
+where c.customer_id = (
+    select c.customer_id from customer c where c.cname = 'Abe Lincoln'
+) and c.customer_id = r.customer_id;
+
+-- find smoothies sold per year
+select extract (YEAR from o.odate) as "Year", count(o.order_id) as "Amount of Smoothies Sold"
+from orders o
+group by extract (YEAR from o.odate)
+order by extract (YEAR from o.odate) ASC;
+    
