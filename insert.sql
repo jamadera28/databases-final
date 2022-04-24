@@ -76,19 +76,19 @@ insert into smoothie values(seqSID.nextVal,5.55,'small','blueberry',null,null,'k
 insert into smoothie values(seqSID.nextVal,10.00,'large','banana','mango',null,'spinach','kale','soy','vitamin_c','raspberry_sherbet');
 
 --orders
-insert into orders values(seqOID.nextVal, 1, 1, 1, 2, current_date, 'pickup');
-insert into orders values(seqOID.nextVal, 1, 2, 1, 1, current_date, 'pickup');
-insert into orders values(seqOID.nextVal, 1, 3, 1, 3, current_date, 'delivery');
-insert into orders values(seqOID.nextVal, 1, 4, 1, 7, current_date, 'instore');
+insert into orders values(seqOID.nextVal, 1, 1, 1, 2, TO_DATE('02-12-2022', 'MM-DD-YYYY'), 'pickup');
+insert into orders values(seqOID.nextVal, 1, 2, 1, 1, TO_DATE('9-19-2022', 'MM-DD-YYYY'), 'pickup');
+insert into orders values(seqOID.nextVal, 1, 3, 1, 3, TO_DATE('10-01-2021', 'MM-DD-YYYY'), 'delivery');
+insert into orders values(seqOID.nextVal, 1, 4, 1, 7, TO_DATE('03-02-2020', 'MM-DD-YYYY'), 'instore');
     
-insert into orders values(seqOID.nextVal, 1, 5, 3, 5, current_date, 'pickup');
-insert into orders values(seqOID.nextVal, 1, 6, 3, 4, current_date, 'delivery');
-insert into orders values(seqOID.nextVal, 1, 7, 3, 5, current_date, 'instore');
+insert into orders values(seqOID.nextVal, 1, 5, 3, 5, TO_DATE('07-23-2020', 'MM-DD-YYYY'), 'pickup');
+insert into orders values(seqOID.nextVal, 1, 6, 3, 4, TO_DATE('08-12-2020', 'MM-DD-YYYY'), 'delivery');
+insert into orders values(seqOID.nextVal, 1, 7, 3, 5, TO_DATE('09-14-2021', 'MM-DD-YYYY'), 'instore');
     
-insert into orders values(seqOID.nextVal, 1, 8, 4, 6, current_date, 'pickup');
-insert into orders values(seqOID.nextVal, 1, 9, 4, 7, current_date, 'delivery');
-insert into orders values(seqOID.nextVal, 1, 10, 4, 1, current_date, 'instore');
+insert into orders values(seqOID.nextVal, 1, 8, 4, 6, TO_DATE('12-19-2018', 'MM-DD-YYYY'), 'pickup');
+insert into orders values(seqOID.nextVal, 1, 9, 4, 7, TO_DATE('04-29-2015', 'MM-DD-YYYY'), 'delivery');
+insert into orders values(seqOID.nextVal, 1, 10, 4, 1, TO_DATE('07-30-2000', 'MM-DD-YYYY'), 'instore');
     
-insert into orders values(seqOID.nextVal, 1, 11, 2, 2, current_date, 'pickup');
+insert into orders values(seqOID.nextVal, 1, 11, 2, 2, TO_DATE('06-11-1809', 'MM-DD-YYYY'), 'pickup');
 insert into orders values(seqOID.nextVal, 1, 12, 2, 4, current_date, 'delivery');
 insert into orders values(seqOID.nextVal, 1, 13, 2, 5, current_date, 'instore');
